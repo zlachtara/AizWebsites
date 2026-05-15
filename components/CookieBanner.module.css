@@ -1,0 +1,207 @@
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 15, 13, 0.96);
+  border-top: 1px solid var(--accent-dark);
+  padding: 24px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  z-index: 9998;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+    gap: 20px;
+  }
+}
+
+.message {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .message {
+    font-size: 0.8125rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+  }
+}
+
+.btnPrimary,
+.btnSecondary {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btnPrimary {
+  background: var(--accent-dark);
+  color: var(--bg);
+  border: 1px solid var(--accent-dark);
+}
+
+.btnPrimary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-light);
+}
+
+.btnSecondary:hover {
+  border-color: var(--text-muted);
+}
+
+/* Modal Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-2);
+  border: 1px solid var(--border-light);
+  padding: 40px;
+  max-width: 480px;
+  width: calc(100% - 48px);
+  z-index: 9999;
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 24px;
+  }
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.optionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.optionName {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.optionDesc {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.toggle {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.toggle.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.toggleTrack {
+  width: 44px;
+  height: 24px;
+  background: var(--border);
+  border-radius: 12px;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.toggleTrack.active {
+  background: var(--accent);
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: var(--text);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.toggleTrack.active .toggleThumb {
+  transform: translateX(20px);
+}
+
+.modalSave {
+  width: 100%;
+  padding: 14px 24px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--bg);
+  background: var(--accent-dark);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modalSave:hover {
+  background: var(--accent);
+}

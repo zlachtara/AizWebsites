@@ -1,0 +1,228 @@
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+}
+
+.backgroundImage {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.7;
+  filter: grayscale(20%);
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(74, 90, 56, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 60%, rgba(138, 154, 106, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 30% 80%, rgba(17, 17, 9, 0.6) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(10, 10, 8, 0.4) 0%, rgba(17, 17, 9, 0.5) 50%, rgba(10, 10, 8, 0.7) 100%);
+}
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(180deg, transparent 0%, rgba(10, 10, 8, 0.3) 100%);
+}
+
+.sectionNumber {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+
+.sectionNumber span {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  writing-mode: vertical-rl;
+  letter-spacing: 0.2em;
+}
+
+.sectionNumber .line {
+  width: 1px;
+  height: 80px;
+  background: var(--border-light);
+}
+
+@media (max-width: 768px) {
+  .sectionNumber {
+    display: none;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+  padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 0 24px;
+    padding-top: 100px;
+  }
+}
+
+.headline {
+  margin-bottom: 32px;
+}
+
+.wordWrap {
+  overflow: hidden;
+  display: block;
+}
+
+.line1,
+.line2,
+.line3 {
+  display: block;
+  font-family: var(--font-display);
+  line-height: 1.25;
+}
+
+.line1 {
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 300;
+  color: var(--text);
+}
+
+.line2 {
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text);
+}
+
+.line3 {
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 300;
+  color: var(--text);
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--bg);
+  background: var(--accent-dark);
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ctaPrimary:hover {
+  background: var(--accent);
+}
+
+.ctaPrimary .arrow {
+  transition: transform 0.3s ease;
+}
+
+.ctaPrimary:hover .arrow {
+  transform: translateX(4px);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.arrowAnimated {
+  display: inline-block;
+}
+
+.watermark {
+  position: absolute;
+  right: -5%;
+  bottom: 10%;
+  font-family: var(--font-display);
+  font-size: 20vw;
+  font-weight: 300;
+  color: var(--text);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .watermark {
+    font-size: 30vw;
+    right: -10%;
+    bottom: 5%;
+  }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: var(--accent);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+.scrollText {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

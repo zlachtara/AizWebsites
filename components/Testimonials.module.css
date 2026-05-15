@@ -1,0 +1,152 @@
+.testimonials {
+  position: relative;
+  padding: 120px 0;
+  background: var(--bg-2);
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 80px 0;
+  }
+}
+
+.sectionNumber {
+  position: absolute;
+  left: 20px;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+
+.sectionNumber span {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  writing-mode: vertical-rl;
+  letter-spacing: 0.2em;
+}
+
+.sectionNumber .line {
+  width: 1px;
+  height: 60px;
+  background: var(--border-light);
+}
+
+@media (max-width: 768px) {
+  .sectionNumber {
+    display: none;
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 24px;
+  }
+}
+
+.header {
+  margin-bottom: 64px;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+@media (max-width: 968px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  position: relative;
+  padding: 40px;
+  background: var(--bg-2);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .item {
+    padding: 32px 24px;
+  }
+}
+
+.quoteMark {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-style: italic;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 0.5;
+  margin-bottom: -16px;
+}
+
+.quote {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+  flex: 1;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.location {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.rating {
+  text-align: center;
+  margin-top: 64px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

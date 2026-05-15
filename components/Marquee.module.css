@@ -1,0 +1,33 @@
+.marquee {
+  width: 100%;
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  animation: marquee 40s linear infinite;
+  white-space: nowrap;
+}
+
+.content span {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--text);
+  padding-right: 0;
+}
+
+@media (max-width: 768px) {
+  .content span {
+    font-size: 1.125rem;
+  }
+}
