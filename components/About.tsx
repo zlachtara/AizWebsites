@@ -8,31 +8,34 @@ import styles from './About.module.css';
 
 function AnimatedCounter({ value, suffix = '' }: { value: number | string; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [displayValue, setDisplayValue] = useState(0);
-  
   const numericValue = typeof value === 'string' ? parseInt(value) : value;
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { duration: 1500, bounce: 0 });
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (isInView) {
-      motionValue.set(numericValue);
-    }
-  }, [isInView, numericValue, motionValue]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          let start = 0;
+          const end = numericValue;
+          const duration = 1500; // ms
+          const stepTime = Math.max(16, Math.floor(duration / (end - start)));
+          const timer = setInterval(() => {
+            start += 1;
+            setDisplayValue(start);
+            if (start >= end) clearInterval(timer);
+          }, stepTime);
+        }
+      },
+      { threshold: 0.3, rootMargin: '0px' } // usuwamy negatywny margin
+    );
 
-  useEffect(() => {
-    const unsubscribe = springValue.on('change', (latest) => {
-      setDisplayValue(Math.round(latest));
-    });
-    return unsubscribe;
-  }, [springValue]);
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [numericValue]);
 
-  return (
-    <span ref={ref}>
-      {displayValue}{suffix}
-    </span>
-  );
+  return <span ref={ref}>{displayValue}{suffix}</span>;
 }
 
 export default function About() {
