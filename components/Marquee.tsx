@@ -7,7 +7,8 @@ export default function Marquee() {
   const { t } = useLanguage();
   
   const text = t.marquee;
-  const repeated = text.repeat(6);
+  // Powtórzenie tekstu wystarczy 3-4 razy, by uzyskać płynne przejście
+  const repeated = text.repeat(4);
 
   return (
     <section className={styles.marquee}>

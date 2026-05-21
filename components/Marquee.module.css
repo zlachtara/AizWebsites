@@ -5,6 +5,7 @@
   border-bottom: 1px solid var(--border);
   padding: 24px 0;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .track {
@@ -14,8 +15,18 @@
 
 .content {
   display: flex;
-  animation: marquee 40s linear infinite;
-  white-space: nowrap;
+  flex-shrink: 0;
+  animation: scroll 40s linear infinite; /* wolniej – 40s */
+  gap: 2rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .content span {

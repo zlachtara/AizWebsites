@@ -18,6 +18,7 @@ export default function Contact() {
     message: '',
   });
 
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
